@@ -1,30 +1,130 @@
-# Nutrition, Symptoms & Remedies
+# Health Tracker - Nutrition, Symptoms & Remedies
 
-*Automatically synced with your [v0.app](https://v0.app) deployments*
+A comprehensive Next.js health tracking application that combines nutrition logging, symptom prediction, exercise tracking, and personalized remedy recommendations using ML-based insights.
 
 [![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/jonnyterreros-projects/v0-nutrition-symptoms-and-remedies)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/chat/projects/MmcQOSuimIN)
 
-## Overview
+## 🌟 Features
 
-This repository will stay in sync with your deployed chats on [v0.app](https://v0.app).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.app](https://v0.app).
+### 1. **Nutrition & Symptom Tracker**
+- Log meals with detailed information (foods, caffeine, timing)
+- Track sleep hours and stress levels
+- Record symptoms and their severity
+- Identify patterns between nutrition and symptoms
 
-## Deployment
+### 2. **ML-Based Predictions**
+- AI-powered symptom predictions based on lifestyle factors
+- Real-time risk assessment for:
+  - Acid Reflux
+  - Migraines
+  - IBS Symptoms
+  - Skin Issues
+- Example predictions: "Coffee + <6 hrs sleep = 50% chance of reflux"
+- 7-day trend analysis with visualizations
+- Factor-symptom correlation charts
 
-Your project is live at:
+### 3. **Exercise & Recovery Tracker**
+- Log workouts with type, duration, and intensity
+- Track recovery feelings
+- Import data from wearables (CSV format)
+- Monitor how exercise impacts symptoms
+- Supports Fitbit/Apple Watch CSV imports
 
-**[https://vercel.com/jonnyterreros-projects/v0-nutrition-symptoms-and-remedies](https://vercel.com/jonnyterreros-projects/v0-nutrition-symptoms-and-remedies)**
+### 4. **Personalized Remedy Recommender**
+- Track effectiveness of medications, supplements, lifestyle changes, and foods
+- Rate remedies with thumbs up/down feedback
+- Automatic effectiveness scoring
+- Sort by effectiveness or usage frequency
+- Multi-condition support (IBS, migraines, skin issues, reflux)
 
-## Build your app
+## 🚀 Getting Started
 
-Continue building your app on:
+### Prerequisites
+- Node.js 18+ installed
+- npm or yarn package manager
 
-**[https://v0.app/chat/projects/MmcQOSuimIN](https://v0.app/chat/projects/MmcQOSuimIN)**
+### Installation
 
-## How It Works
+1. Clone the repository:
+```bash
+git clone https://github.com/jonnyterreros-projects/v0-nutrition-symptoms-and-remedies.git
+cd v0-nutrition-symptoms-and-remedies
+```
 
-1. Create and modify your project using [v0.app](https://v0.app)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Run the development server:
+```bash
+npm run dev
+```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
+
+## 📊 How It Works
+
+### Prediction Algorithm
+
+The app uses a rule-based ML model that analyzes:
+
+- **Sleep Patterns**: Poor sleep (<6 hrs) increases reflux & migraine risk by 25-30%
+- **Caffeine + Sleep**: Coffee with insufficient sleep = 50%+ reflux probability
+- **Stress Levels**: High stress (7+) significantly impacts IBS symptoms
+- **Exercise**: Regular activity provides 10-15% protective effect
+
+### Data Storage
+
+- All data is stored locally in your browser's localStorage
+- No data is sent to external servers
+- Export/import functionality for data portability
+
+### CSV Import Format
+
+For wearable data import, use this format:
+```csv
+date,type,duration,intensity
+2024-01-01,Running,30,medium
+2024-01-02,Yoga,45,low
+2024-01-03,Weights,60,high
+```
+
+## 🎨 Tech Stack
+
+- **Framework**: Next.js 14 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Charts**: Recharts
+- **Icons**: Lucide React
+- **Date Handling**: date-fns
+
+## 📱 Pages
+
+- **Dashboard** (`/`) - Overview with quick stats and today's predictions
+- **Nutrition** (`/nutrition`) - Track meals and symptoms
+- **Exercise** (`/exercise`) - Log workouts and recovery
+- **Predictions** (`/predictions`) - AI predictions and trend analysis
+- **Remedies** (`/remedies`) - Track remedy effectiveness
+
+## 🔮 Future Enhancements
+
+- [ ] Advanced ML with collaborative filtering
+- [ ] Cloud sync and multi-device support
+- [ ] More wearable integrations (direct API connections)
+- [ ] Food image recognition
+- [ ] Community insights (anonymized patterns)
+- [ ] Export reports as PDF
+- [ ] Dark mode support
+
+## 📄 License
+
+MIT
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📧 Contact
+
+For questions or support, please open an issue in the repository.
