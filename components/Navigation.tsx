@@ -23,7 +23,7 @@ export default function Navigation() {
             href="/"
             className="text-2xl font-bold bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent"
           >
-            HealthTracker
+            miniHealthHelper
           </Link>
           <div className="flex space-x-1">
             {links.map((link) => {

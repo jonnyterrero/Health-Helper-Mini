@@ -7,7 +7,7 @@ import Navigation from "@/components/Navigation"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Health Tracker - Nutrition, Symptoms & Remedies",
+  title: "miniHealthHelper - Nutrition, Symptoms & Remedies",
   description: "Track nutrition, predict symptoms, and discover personalized remedies",
   generator: "v0.app",
 }
