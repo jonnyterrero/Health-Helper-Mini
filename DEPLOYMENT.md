@@ -9,11 +9,11 @@ The easiest way to deploy this Next.js app is using [Vercel](https://vercel.com)
 ### Option 1: Deploy from GitHub
 
 1. Push your code to GitHub:
-```bash
+\`\`\`bash
 git add .
 git commit -m "Initial commit"
 git push origin main
-```
+\`\`\`
 
 2. Go to [vercel.com](https://vercel.com) and sign in with GitHub
 
@@ -26,33 +26,33 @@ git push origin main
 ### Option 2: Deploy with Vercel CLI
 
 1. Install Vercel CLI:
-```bash
+\`\`\`bash
 npm i -g vercel
-```
+\`\`\`
 
 2. Deploy:
-```bash
+\`\`\`bash
 vercel
-```
+\`\`\`
 
 3. Follow the prompts to deploy
 
 ## Deploy to Netlify
 
 1. Install Netlify CLI:
-```bash
+\`\`\`bash
 npm i -g netlify-cli
-```
+\`\`\`
 
 2. Build your app:
-```bash
+\`\`\`bash
 npm run build
-```
+\`\`\`
 
 3. Deploy:
-```bash
+\`\`\`bash
 netlify deploy --prod
-```
+\`\`\`
 
 ## Environment Variables
 

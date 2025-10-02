@@ -4,7 +4,7 @@
 
 This Next.js app follows the App Router architecture with a clean separation of concerns.
 
-```
+\`\`\`
 v0-nutrition-symptoms-and-remedies/
 ├── app/                      # Next.js App Router pages
 │   ├── layout.tsx           # Root layout with navigation
@@ -39,7 +39,7 @@ v0-nutrition-symptoms-and-remedies/
 ├── README.md               # Project documentation
 ├── DEPLOYMENT.md           # Deployment guide
 └── STRUCTURE.md            # This file
-```
+\`\`\`
 
 ## Key Files Explained
 
@@ -74,7 +74,7 @@ v0-nutrition-symptoms-and-remedies/
 
 All data structures are strongly typed:
 
-```typescript
+\`\`\`typescript
 // Nutrition Entry
 interface NutritionEntry {
   id: string;
@@ -109,7 +109,7 @@ interface Remedy {
   conditions: string[];
   notes: string;
 }
-```
+\`\`\`
 
 ## Styling
 
