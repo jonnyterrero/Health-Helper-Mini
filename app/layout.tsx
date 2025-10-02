@@ -8,6 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Health Tracker - Nutrition, Symptoms & Remedies",
   description: "Track nutrition, predict symptoms, and discover personalized remedies",
+    generator: 'v0.app'
 };
 
 export default function RootLayout({

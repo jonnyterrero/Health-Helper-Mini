@@ -46,20 +46,20 @@ A comprehensive Next.js health tracking application that combines nutrition logg
 ### Installation
 
 1. Clone the repository:
-```bash
+\`\`\`bash
 git clone https://github.com/jonnyterreros-projects/v0-nutrition-symptoms-and-remedies.git
 cd v0-nutrition-symptoms-and-remedies
-```
+\`\`\`
 
 2. Install dependencies:
-```bash
+\`\`\`bash
 npm install
-```
+\`\`\`
 
 3. Run the development server:
-```bash
+\`\`\`bash
 npm run dev
-```
+\`\`\`
 
 4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
@@ -83,12 +83,12 @@ The app uses a rule-based ML model that analyzes:
 ### CSV Import Format
 
 For wearable data import, use this format:
-```csv
+\`\`\`csv
 date,type,duration,intensity
 2024-01-01,Running,30,medium
 2024-01-02,Yoga,45,low
 2024-01-03,Weights,60,high
-```
+\`\`\`
 
 ## 🎨 Tech Stack
 

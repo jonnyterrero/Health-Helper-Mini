@@ -54,7 +54,7 @@ A comprehensive **Next.js health tracking application** with ML-based prediction
 
 ## 📁 Project Structure
 
-```
+\`\`\`
 ├── app/                    # Pages (Dashboard, Nutrition, Exercise, etc.)
 ├── components/             # Reusable UI components
 ├── lib/                    # Business logic & utilities
@@ -65,24 +65,24 @@ A comprehensive **Next.js health tracking application** with ML-based prediction
 ├── README.md              # Full documentation
 ├── DEPLOYMENT.md          # Deploy guide
 └── STRUCTURE.md           # Architecture docs
-```
+\`\`\`
 
 ## 🚀 How to Run
 
 1. **Install dependencies**:
-```bash
+\`\`\`bash
 npm install
-```
+\`\`\`
 
 2. **Start development server**:
-```bash
+\`\`\`bash
 npm run dev
-```
+\`\`\`
 
 3. **Open browser**:
-```
+\`\`\`
 http://localhost:3000
-```
+\`\`\`
 
 4. **Try it out**:
    - Click "Quick Start with Sample Data" button
@@ -130,10 +130,10 @@ The ML model analyzes:
 ## 🚀 Deployment Options
 
 **Recommended: Vercel**
-```bash
+\`\`\`bash
 npm i -g vercel
 vercel
-```
+\`\`\`
 
 Also supports: Netlify, AWS, Cloudflare Pages
 
