@@ -3,25 +3,68 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+  /* Glass/iOS Color Palette */
+  --color-glass-pink: 255 182 193;
+  --color-glass-red: 255 160 160;
+  --color-glass-purple: 216 180 254;
+  --color-glass-blue: 191 219 254;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+  /* Semantic tokens */
+  --background: 255 250 252;
+  --foreground: 30 30 46;
+
+  --card: 255 255 255;
+  --card-foreground: 30 30 46;
+
+  --primary: 216 180 254;
+  --primary-foreground: 88 28 135;
+
+  --secondary: 255 182 193;
+  --secondary-foreground: 136 19 55;
+
+  --accent: 191 219 254;
+  --accent-foreground: 30 58 138;
+
+  --muted: 248 250 252;
+  --muted-foreground: 100 116 139;
+
+  --border: 226 232 240;
+  --input: 226 232 240;
+  --ring: 216 180 254;
+
+  --radius: 1rem;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
+  color: rgb(var(--foreground));
+  font-feature-settings: "rlig" 1, "calt" 1;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  /* Glassmorphism utilities */
+  .glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+  }
+
+  .glass-nav {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   }
 }
