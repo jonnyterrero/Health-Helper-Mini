@@ -1,4 +1,4 @@
-# miniHealthHelper - Nutrition, Symptoms & Remedies
+# Health Helper mini - Nutrition, Symptoms & Remedies
 
 A comprehensive Next.js health tracking application that combines nutrition logging, symptom prediction, exercise tracking, and personalized remedy recommendations using ML-based insights.
 
