@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Activity, Brain, Heart, TrendingUp, BarChart3, LineChart, Zap, Sparkles } from 'lucide-react';
+import { Activity, Brain, Heart, TrendingUp, BarChart3, LineChart, Zap, Sparkles, Plug } from 'lucide-react';
 
 export default function Navigation() {
   const pathname = usePathname();
@@ -16,6 +16,7 @@ export default function Navigation() {
     { href: '/analytics', label: 'Analytics', icon: LineChart },
     { href: '/ai-ml', label: 'AI/ML', icon: Zap },
     { href: '/advanced-features', label: 'Advanced', icon: Sparkles },
+    { href: '/integration', label: 'Integration', icon: Plug },
   ];
 
   return (
