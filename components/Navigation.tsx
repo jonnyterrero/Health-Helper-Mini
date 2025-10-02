@@ -18,14 +18,14 @@ export default function Navigation() {
   return (
     <nav className="glass-nav sticky top-0 z-50 shadow-sm">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-16 gap-4">
           <Link
             href="/"
-            className="text-2xl font-bold bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent"
+            className="text-lg md:text-xl lg:text-2xl font-bold bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent whitespace-nowrap flex-shrink-0"
           >
             Health Helper mini
           </Link>
-          <div className="flex space-x-1">
+          <div className="flex flex-wrap gap-1 justify-end">
             {links.map((link) => {
               const Icon = link.icon
               const isActive = pathname === link.href
