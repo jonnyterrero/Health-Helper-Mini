@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Activity, Brain, Heart, TrendingUp, BarChart3 } from 'lucide-react';
+import { Activity, Brain, Heart, TrendingUp, BarChart3, LineChart, Zap, Sparkles } from 'lucide-react';
 
 export default function Navigation() {
   const pathname = usePathname();
@@ -13,6 +13,9 @@ export default function Navigation() {
     { href: '/exercise', label: 'Exercise', icon: Heart },
     { href: '/predictions', label: 'Predictions', icon: Brain },
     { href: '/remedies', label: 'Remedies', icon: TrendingUp },
+    { href: '/analytics', label: 'Analytics', icon: LineChart },
+    { href: '/ai-ml', label: 'AI/ML', icon: Zap },
+    { href: '/advanced-features', label: 'Advanced', icon: Sparkles },
   ];
 
   return (

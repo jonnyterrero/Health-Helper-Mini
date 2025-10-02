@@ -3,6 +3,10 @@ export interface DailyData {
   stress: number;
   caffeine: boolean;
   exercise: boolean;
+  // Enhanced data for better predictions
+  exerciseIntensity?: 'low' | 'medium' | 'high';
+  exerciseDuration?: number;
+  recovery?: number;
 }
 
 export interface Prediction {
@@ -38,8 +42,17 @@ export function calculatePredictions(data: DailyData): Prediction[] {
   }
 
   if (data.exercise) {
-    refluxProbability -= 10;
-    refluxFactors.push('Exercise (protective)');
+    // More sophisticated exercise impact based on intensity and recovery
+    const exerciseBenefit = data.exerciseIntensity === 'high' ? 15 : 
+                           data.exerciseIntensity === 'medium' ? 10 : 5;
+    refluxProbability -= exerciseBenefit;
+    refluxFactors.push(`Exercise (${data.exerciseIntensity || 'medium'} intensity - protective)`);
+    
+    // Poor recovery can reduce benefits
+    if (data.recovery && data.recovery < 4) {
+      refluxProbability += 5;
+      refluxFactors.push('Poor recovery may reduce exercise benefits');
+    }
   }
 
   refluxProbability = Math.max(0, Math.min(100, refluxProbability));
@@ -71,8 +84,17 @@ export function calculatePredictions(data: DailyData): Prediction[] {
   }
 
   if (data.exercise) {
-    migraineProbability -= 15;
-    migraineFactors.push('Exercise (protective)');
+    // Exercise helps with migraines, but intensity matters
+    const exerciseBenefit = data.exerciseIntensity === 'high' ? 20 : 
+                           data.exerciseIntensity === 'medium' ? 15 : 10;
+    migraineProbability -= exerciseBenefit;
+    migraineFactors.push(`Exercise (${data.exerciseIntensity || 'medium'} intensity - protective)`);
+    
+    // Poor recovery can trigger migraines
+    if (data.recovery && data.recovery < 3) {
+      migraineProbability += 10;
+      migraineFactors.push('Poor recovery may increase migraine risk');
+    }
   }
 
   migraineProbability = Math.max(0, Math.min(100, migraineProbability));
@@ -102,7 +124,17 @@ export function calculatePredictions(data: DailyData): Prediction[] {
     ibsProbability += 10;
     ibsFactors.push('Lack of physical activity');
   } else {
-    ibsFactors.push('Regular exercise (protective)');
+    // Exercise is particularly beneficial for IBS
+    const exerciseBenefit = data.exerciseIntensity === 'high' ? 20 : 
+                           data.exerciseIntensity === 'medium' ? 15 : 10;
+    ibsProbability -= exerciseBenefit;
+    ibsFactors.push(`Regular exercise (${data.exerciseIntensity || 'medium'} intensity - highly protective for IBS)`);
+    
+    // Recovery is crucial for IBS management
+    if (data.recovery && data.recovery < 4) {
+      ibsProbability += 8;
+      ibsFactors.push('Poor recovery may worsen IBS symptoms');
+    }
   }
 
   ibsProbability = Math.max(0, Math.min(100, ibsProbability));
@@ -129,8 +161,17 @@ export function calculatePredictions(data: DailyData): Prediction[] {
   }
 
   if (data.exercise) {
-    skinProbability -= 10;
-    skinFactors.push('Exercise improves circulation');
+    // Exercise benefits skin through circulation and stress reduction
+    const exerciseBenefit = data.exerciseIntensity === 'high' ? 15 : 
+                           data.exerciseIntensity === 'medium' ? 10 : 5;
+    skinProbability -= exerciseBenefit;
+    skinFactors.push(`Exercise (${data.exerciseIntensity || 'medium'} intensity - improves circulation & reduces stress)`);
+    
+    // Poor recovery can cause inflammation affecting skin
+    if (data.recovery && data.recovery < 4) {
+      skinProbability += 5;
+      skinFactors.push('Poor recovery may increase inflammation');
+    }
   }
 
   skinProbability = Math.max(0, Math.min(100, skinProbability));

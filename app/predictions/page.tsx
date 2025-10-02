@@ -13,12 +13,16 @@ export default function PredictionsPage() {
   const [correlationData, setCorrelationData] = useState<any[]>([]);
 
   useEffect(() => {
-    // Get today's data
+    // Get today's data with enhanced exercise information
     const todayData = {
       sleep: parseFloat(localStorage.getItem('todaySleep') || '7'),
       stress: parseInt(localStorage.getItem('todayStress') || '5'),
       caffeine: localStorage.getItem('todayCaffeine') === 'true',
       exercise: localStorage.getItem('todayExercise') === 'true',
+      // Enhanced exercise data from exercise entries
+      exerciseIntensity: localStorage.getItem('todayExerciseIntensity') as 'low' | 'medium' | 'high' || 'medium',
+      exerciseDuration: parseInt(localStorage.getItem('todayExerciseDuration') || '30'),
+      recovery: parseInt(localStorage.getItem('todayRecovery') || '5'),
     };
 
     const preds = calculatePredictions(todayData);

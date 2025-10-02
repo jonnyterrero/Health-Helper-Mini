@@ -262,8 +262,18 @@ export default function RemediesPage() {
                       </span>
                     ))}
                   </div>
-                  <div className="text-sm text-gray-600">
-                    Used {remedy.usageCount} time{remedy.usageCount !== 1 ? 's' : ''}
+                  <div className="text-sm text-gray-600 space-y-1">
+                    <div>Used {remedy.usageCount} time{remedy.usageCount !== 1 ? 's' : ''}</div>
+                    {remedy.successRate && (
+                      <div className="text-green-600 font-medium">
+                        Success Rate: {remedy.successRate.toFixed(0)}%
+                      </div>
+                    )}
+                    {remedy.lastUsed && (
+                      <div className="text-xs text-gray-500">
+                        Last used: {new Date(remedy.lastUsed).toLocaleDateString()}
+                      </div>
+                    )}
                   </div>
                 </div>
 
@@ -292,18 +302,69 @@ export default function RemediesPage() {
           )}
         </div>
 
-        {/* Insights */}
+        {/* Enhanced Insights */}
         {sortedRemedies.length > 0 && (
           <div className="mt-8 bg-gradient-to-r from-green-50 to-blue-50 rounded-xl shadow-lg p-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Top Recommendations</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">💡 Personalized Insights</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {sortedRemedies.slice(0, 3).map((remedy, idx) => (
-                <div key={remedy.id} className="bg-white rounded-lg p-4">
-                  <div className="text-3xl font-bold text-primary-600 mb-1">#{idx + 1}</div>
-                  <div className="font-semibold text-gray-900 mb-1">{remedy.name}</div>
-                  <div className="text-sm text-gray-600">{remedy.effectiveness}% effective</div>
+              <div>
+                <h4 className="font-semibold text-gray-800 mb-2">Most Effective Remedies</h4>
+                <div className="space-y-2">
+                  {sortedRemedies.slice(0, 3).map((remedy, idx) => (
+                    <div key={remedy.id} className="flex items-center justify-between bg-white rounded-lg p-3">
+                      <span className="text-sm font-medium">{remedy.name}</span>
+                      <span className="text-sm text-green-600 font-bold">{remedy.effectiveness}%</span>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </div>
+              <div>
+                <h4 className="font-semibold text-gray-800 mb-2">Highest Success Rate</h4>
+                <div className="space-y-2">
+                  {[...sortedRemedies]
+                    .filter(r => r.successRate && r.usageCount > 0)
+                    .sort((a, b) => (b.successRate || 0) - (a.successRate || 0))
+                    .slice(0, 3)
+                    .map((remedy, idx) => (
+                    <div key={remedy.id} className="flex items-center justify-between bg-white rounded-lg p-3">
+                      <span className="text-sm font-medium">{remedy.name}</span>
+                      <span className="text-sm text-purple-600 font-bold">{remedy.successRate?.toFixed(0)}%</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div>
+                <h4 className="font-semibold text-gray-800 mb-2">Most Used Remedies</h4>
+                <div className="space-y-2">
+                  {[...sortedRemedies].sort((a, b) => b.usageCount - a.usageCount).slice(0, 3).map((remedy, idx) => (
+                    <div key={remedy.id} className="flex items-center justify-between bg-white rounded-lg p-3">
+                      <span className="text-sm font-medium">{remedy.name}</span>
+                      <span className="text-sm text-blue-600 font-bold">{remedy.usageCount} uses</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+            
+            {/* Practical Recommendations */}
+            <div className="mt-6 bg-white rounded-lg p-4">
+              <h4 className="font-semibold text-gray-800 mb-3">🎯 What Works for You</h4>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <strong>Top Lifestyle Remedy:</strong> {
+                    sortedRemedies
+                      .filter(r => r.type === 'lifestyle' && r.usageCount > 0)
+                      .sort((a, b) => b.effectiveness - a.effectiveness)[0]?.name || 'None tracked yet'
+                  }
+                </div>
+                <div>
+                  <strong>Most Reliable Supplement:</strong> {
+                    sortedRemedies
+                      .filter(r => r.type === 'supplement' && r.usageCount > 0)
+                      .sort((a, b) => (b.successRate || 0) - (a.successRate || 0))[0]?.name || 'None tracked yet'
+                  }
+                </div>
+              </div>
             </div>
           </div>
         )}
