@@ -40,7 +40,7 @@ Your nutrition and symptoms tracking app now includes a comprehensive integratio
 - **Cross-App Insights**: AI-powered analysis across all health data
 
 ### **Data Flow Architecture**
-```
+\`\`\`
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
 │   SkinTrack+    │    │   GastroGuard   │    │   HealthHelper  │
 │                 │    │                 │    │                 │
@@ -61,7 +61,7 @@ Your nutrition and symptoms tracking app now includes a comprehensive integratio
                     │   - Cross-App Insights    │
                     │   - Unified Health View   │
                     └───────────────────────────┘
-```
+\`\`\`
 
 ## 🎯 **How to Set Up Integration**
 
