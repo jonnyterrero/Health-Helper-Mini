@@ -31,9 +31,6 @@ export default function ExercisePage() {
 
     saveExerciseEntry(entry);
     localStorage.setItem('todayExercise', 'true');
-    localStorage.setItem('todayExerciseIntensity', formData.intensity);
-    localStorage.setItem('todayExerciseDuration', formData.duration.toString());
-    localStorage.setItem('todayRecovery', formData.recovery.toString());
     
     setEntries([...entries, entry]);
     setShowForm(false);
